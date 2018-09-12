@@ -48,4 +48,16 @@ public class Shift {
     public int getNumShifts() {
         return numShifts;
     }
+
+    @Override
+    public String toString() {
+        return "Shift{" +
+                "date='" + date + '\'' +
+                ", dayOfWeek='" + dayOfWeek + '\'' +
+                ", courseType='" + courseType + '\'' +
+                ", time='" + time + '\'' +
+                ", staffType='" + staffType + '\'' +
+                ", numShifts=" + numShifts +
+                '}';
+    }
 }
