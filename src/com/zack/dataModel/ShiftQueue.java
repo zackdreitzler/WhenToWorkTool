@@ -57,4 +57,13 @@ public class ShiftQueue{
         return shiftQueue.isEmpty();
     }
 
+    /**
+     * Prints the contents of the shift queue.
+     */
+    public void printQueue(){
+        for (Shift shift : shiftQueue){
+            System.out.println(shift);
+        }
+    }
+
 }
