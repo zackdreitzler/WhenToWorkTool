@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.Button?>
-<GridPane fx:controller="com.zack.userInterface.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+<?import javafx.scene.layout.VBox?>
+<BorderPane fx:controller="com.zack.UI.Controller"
+            xmlns:fx="http://javafx.com/fxml">
+    <center>
+        <TableView fx:id="shiftsToAdd">
+            <columns>
+                <TableColumn text="Date">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="date"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Day of Week">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="dayOfWeek"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Course Type">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="courseType"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Time">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="time"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Staff Type">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="staffType"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Number of Shifts">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="numShifts"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </center>
+    <left>
+        <VBox>
+            <Button text="Add Shift" prefWidth="100" onAction="#addShift"/>
+            <Button text="Edit Shift" prefWidth="100" onAction="#editShift"/>
+            <Button text="Remove Shift" prefWidth="100" onAction="#removeShift"/>
+            <Button text="Confirm" prefWidth="100" onAction="#addShiftsToW2W"/>
+        </VBox>
+    </left>
+</BorderPane>

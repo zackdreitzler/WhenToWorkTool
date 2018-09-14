@@ -9,9 +9,9 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("com/zack/userInterface/mainWindow.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"));
+        primaryStage.setTitle("WhenToWork Tool");
+        primaryStage.setScene(new Scene(root, 625, 300));
         primaryStage.show();
     }
 
