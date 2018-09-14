@@ -19,14 +19,14 @@ public class Shift {
     private SimpleStringProperty staffType;
     private SimpleIntegerProperty numShifts;
 
-    public Shift(SimpleStringProperty date, SimpleStringProperty dayOfWeek, SimpleStringProperty courseType,
-                 SimpleStringProperty time, SimpleStringProperty staffType, SimpleIntegerProperty numShifts) {
-        this.date = date;
-        this.dayOfWeek = dayOfWeek;
-        this.courseType = courseType;
-        this.time = time;
-        this.staffType = staffType;
-        this.numShifts = numShifts;
+    public Shift(String date, String dayOfWeek, String courseType,
+                 String time, String staffType, Integer numShifts) {
+        this.date = new SimpleStringProperty(date);
+        this.dayOfWeek = new SimpleStringProperty(dayOfWeek);
+        this.courseType = new SimpleStringProperty(courseType);
+        this.time = new SimpleStringProperty(time);
+        this.staffType = new SimpleStringProperty(staffType);
+        this.numShifts = new SimpleIntegerProperty(numShifts);
     }
 
     public String getDate() {

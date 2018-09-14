@@ -1,7 +1,5 @@
 package com.zack.dataModel;
 
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -30,14 +28,9 @@ public class ShiftData {
     public void readContacts(){
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(INPUT_FILE))){
             String shift;
-            String[] shiftToAdd;
+            String[] shiftInformation;
             while((shift = bufferedReader.readLine()) != null){
-                shiftToAdd = shift.split("\t");
-                SimpleStringProperty[] shiftInformation = new SimpleStringProperty[15];
-                for(int i = 0; i < shiftToAdd.length; i++){
-                    SimpleStringProperty value = new SimpleStringProperty(shiftToAdd[i]);
-                    shiftInformation[i] = value;
-                }
+                shiftInformation = shift.split("\t");
                 addShift(shiftInformation);
             }
         }catch(IOException e){
@@ -50,19 +43,18 @@ public class ShiftData {
      * the shiftInformation array.
      * @param shiftInformation array of strings holding details for the shift
      */
-    private void addShift(SimpleStringProperty[] shiftInformation) {
-        SimpleStringProperty date = shiftInformation[0];
-        SimpleStringProperty dayOfWeek = shiftInformation[1];
-        SimpleStringProperty courseType = shiftInformation[4];
-        SimpleStringProperty time = shiftInformation[6];
-        SimpleStringProperty staffType = getStaffType(courseType);
+    private void addShift(String[] shiftInformation) {
+        String date = shiftInformation[0];
+        String dayOfWeek = shiftInformation[1];
+        String courseType = shiftInformation[4];
+        String time = shiftInformation[6];
+        String staffType = getStaffType(courseType);
         int numCommas = getNumCommas(shiftInformation[5]);
 
-        if (courseType.get().equalsIgnoreCase("tower") ||
-            courseType.get().equalsIgnoreCase("zips") ||
-        courseType.get().isEmpty()){
-            SimpleIntegerProperty numShifts = new SimpleIntegerProperty(numCommas+1);
-            Shift shiftsToAdd = new Shift(date, dayOfWeek, courseType, time, staffType, numShifts);
+        if (courseType.equalsIgnoreCase("tower") ||
+            courseType.equalsIgnoreCase("zips") ||
+        courseType.isEmpty()){
+            Shift shiftsToAdd = new Shift(date, dayOfWeek, courseType, time, staffType, numCommas+1);
             shiftList.add(shiftsToAdd);
         }else{
             int numFacilitatorShifts;
@@ -76,10 +68,10 @@ public class ShiftData {
             }
 
             Shift facilShift = new Shift(date, dayOfWeek, courseType,
-                    time, staffType, new SimpleIntegerProperty(numFacilitatorShifts));
+                    time, staffType, numFacilitatorShifts);
 
-            Shift apprenticeShift = new Shift(date, dayOfWeek, courseType, time,
-                    new SimpleStringProperty("Apprentice"), new SimpleIntegerProperty(numApprenticeShifts));
+            Shift apprenticeShift = new Shift(date, dayOfWeek, courseType,
+                    time, "Apprentice", numApprenticeShifts);
 
             shiftList.add(facilShift);
             shiftList.add(apprenticeShift);
@@ -91,11 +83,10 @@ public class ShiftData {
      * @param str is the string passed containing commas
      * @return num number of commas in the string s
      */
-    private int getNumCommas(SimpleStringProperty str) {
+    private int getNumCommas(String str) {
         int numCommas = 0;
-        String commasToCount = str.get();
-        for(int i = 0; i < commasToCount.length(); i++){
-            if(commasToCount.charAt(i) == ',') numCommas++;
+        for(int i = 0; i < str.length(); i++){
+            if(str.charAt(i) == ',') numCommas++;
         }
         if(numCommas == 0) return 1;
         return numCommas;
@@ -107,14 +98,14 @@ public class ShiftData {
      * @return SimpleStingPropert for the type of staff needed for this shift
      *          returns null if courseType is not a valid course type
      */
-    private SimpleStringProperty getStaffType(SimpleStringProperty courseType) {
-        if (courseType.get().equalsIgnoreCase("tower")){
-            return new SimpleStringProperty("Tower Tech");
-        }else if(courseType.get().equalsIgnoreCase("zips") ||
-                courseType.get().isEmpty()){
-            return new SimpleStringProperty("Zip Tech");
+    private String getStaffType(String courseType) {
+        if (courseType.equalsIgnoreCase("tower")){
+            return "Tower Tech";
+        }else if(courseType.equalsIgnoreCase("zips") ||
+                courseType.isEmpty()){
+            return "Zip Tech";
         }else {
-            return new SimpleStringProperty("Facilitator");
+            return "Facilitator";
         }
     }
 }
