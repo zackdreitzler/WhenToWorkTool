@@ -11,7 +11,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"));
         primaryStage.setTitle("WhenToWork Tool");
-        primaryStage.setScene(new Scene(root, 625, 300));
+        primaryStage.setScene(new Scene(root, 630, 300));
         primaryStage.show();
     }
 
