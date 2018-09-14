@@ -4,6 +4,7 @@ import com.zack.dataModel.Shift;
 import com.zack.dataModel.ShiftData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.TableView;
@@ -63,7 +64,32 @@ public class Controller {
      */
     @FXML
     public void editShift(){
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainWindow.getScene().getWindow());
+        dialog.setTitle("Edit a Shift");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("shiftDialog.fxml"));
 
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+
+        } catch(IOException e) {
+            System.out.println("Couldn't load the dialog");
+            e.printStackTrace();
+            return;
+        }
+
+        ShiftDialogController shiftDialogController = fxmlLoader.getController();
+        Shift selectedShift = shiftsToAdd.getSelectionModel().getSelectedItem();
+        shiftDialogController.showEditShiftDialog(selectedShift);
+
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+
+        Optional<ButtonType> result = dialog.showAndWait();
+        if(result.isPresent() && result.get() == ButtonType.OK) {
+            shiftDialogController.editShift(selectedShift);
+        }
     }
 
     /**
@@ -71,7 +97,17 @@ public class Controller {
      */
     @FXML
     public void removeShift(){
+        Shift selectedShift = shiftsToAdd.getSelectionModel().getSelectedItem();
 
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Remove Shift");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure you want to remove shift: \n" + selectedShift);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if(result.isPresent() && result.get() == ButtonType.OK){
+            shiftData.getShiftList().remove(selectedShift);
+        }
     }
 
     /**
