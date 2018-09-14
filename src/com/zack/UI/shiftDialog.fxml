@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<DialogPane xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.zack.UI.ShiftDialogController"
+        prefHeight="400.0" prefWidth="600.0">
+    <headerText>
+        Fill in the information for the shift
+    </headerText>
+    <content>
+        <GridPane vgap="10" hgap="10">
+            <Label text="Date(MM/DD/YYYY): " GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="dateField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Day of Week: " GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="dayOfWeekField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Course Type: " GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="courseTypeField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Time: " GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="timeField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Staff Type: " GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <TextField fx:id="staffTypeField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            <Label text="Number of Shifts: " GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <TextField fx:id="numShiftsField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+        </GridPane>
+    </content>
+</DialogPane>
+
