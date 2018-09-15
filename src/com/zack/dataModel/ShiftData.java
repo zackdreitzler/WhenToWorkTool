@@ -9,6 +9,8 @@ import java.io.IOException;
 
 /**
  * ShiftData is for loading the shifts into the list of shifts
+ * @author Zack Dreitzler
+ * @version 1.0
  */
 public class ShiftData {
     private ObservableList<Shift> shiftList;
