@@ -6,6 +6,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
+/**
+ * This class opens the main window for the tool.
+ *
+ * @author Zack Dreitzler
+ * @version 1.0
+ */
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{

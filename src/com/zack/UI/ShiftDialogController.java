@@ -6,7 +6,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 
-
+/**
+ * Dialog for editing or adding a shift to the list.
+ *
+ * @author Zack Dreitzler
+ * @version 1.0
+ */
 public class ShiftDialogController {
     @FXML
     private TextField dateField;
