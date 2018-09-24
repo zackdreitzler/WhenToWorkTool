@@ -49,7 +49,7 @@ public class ShiftData {
         String date = shiftInformation[0];
         String dayOfWeek = shiftInformation[1];
         String courseType = shiftInformation[4];
-        String time = shiftInformation[6];
+        String time = getTime(shiftInformation[6]);
         String staffType = getStaffType(courseType);
         int numCommas = getNumCommas(shiftInformation[5]);
 
@@ -77,6 +77,22 @@ public class ShiftData {
 
             shiftList.add(facilShift);
             shiftList.add(apprenticeShift);
+        }
+    }
+
+    /**
+     * Gets the correct time input from the times provided.
+     * @param str time provided
+     * @return correct time period for shift
+     */
+    private String getTime(String str) {
+        String[] times = str.split("-");
+        if(Integer.parseInt("" + times[0].charAt(0)) < 5){
+            return times[0] + "pm-" + times[1] + "pm";
+        }else if(Integer.parseInt("" + times[1].charAt(0)) >= 12){
+            return times[0] + "am-" + times[1] + "pm";
+        }else{
+            return times[0] + "am-" + times[1] + "am";
         }
     }
 
