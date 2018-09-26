@@ -3,13 +3,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane xmlns="http://javafx.com/javafx"
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.zack.UI.LoginDialogController"
-            prefHeight="400.0" prefWidth="600.0">
-    <Label text="Username: " GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-    <TextField fx:id="username" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            prefHeight="100" prefWidth="100">
+    <center>
+        <VBox>
+            <Label text="Username: "/>
+            <TextField fx:id="username"/>
 
-    <Label text="Password: " GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-    <TextField fx:id="password" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-</GridPane>
+            <Label text="Password: "/>
+            <PasswordField fx:id="password"/>
+        </VBox>
+    </center>
+</BorderPane>

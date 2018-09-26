@@ -1,6 +1,7 @@
 package com.zack.UI;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class LoginDialogController {
     private TextField username;
 
     @FXML
-    private TextField password;
+    private PasswordField password;
 
 
     public void setDetails(List<String> details){
