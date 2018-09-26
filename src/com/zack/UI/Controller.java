@@ -153,6 +153,13 @@ public class Controller {
             loginDialogController.setDetails(details);
             try{
                 tool.run(shiftData.getShiftList(), details);
+
+                Alert completeAlert = new Alert(Alert.AlertType.INFORMATION);
+                completeAlert.setTitle("Completed");
+                completeAlert.setHeaderText(null);
+                completeAlert.setContentText("Shifts have been successfully added.");
+                completeAlert.show();
+                
             }catch (FailedToolException fte){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Tool Failed");
