@@ -9,7 +9,7 @@ import java.util.List;
  * Dialog window to handle input of username and password.
  *
  * @author Zack Dreitzler
- * @version 1.0
+ * @version 1
  */
 public class LoginDialogController {
     @FXML

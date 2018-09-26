@@ -5,7 +5,7 @@ package com.zack.webInterface;
  * to the user.
  *
  * @author Zack Dreitzler
- * @version 1.0
+ * @version 1
  */
 public class FailedToolException extends Exception {
 

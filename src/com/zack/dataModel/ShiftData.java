@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * ShiftData is for loading the shifts into the list of shifts
  * @author Zack Dreitzler
- * @version 1.0
+ * @version 1
  */
 public class ShiftData {
     private ObservableList<Shift> shiftList;
@@ -124,6 +124,15 @@ public class ShiftData {
             return "Zip Tech";
         }else {
             return "Facilitator";
+        }
+    }
+
+    /**
+     * Prints out the contents of shiftlist.
+     */
+    public void printShiftList(){
+        for (Shift shift : shiftList){
+            System.out.println(shift);
         }
     }
 }

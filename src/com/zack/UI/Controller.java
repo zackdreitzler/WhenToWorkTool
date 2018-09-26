@@ -21,7 +21,7 @@ import java.util.Optional;
  * The controller for the main window.
  *
  * @author Zack Dreitzler
- * @version 1.0
+ * @version 1
  */
 public class Controller {
     @FXML

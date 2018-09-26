@@ -10,7 +10,7 @@ import javafx.fxml.FXMLLoader;
  * This class opens the main window for the tool.
  *
  * @author Zack Dreitzler
- * @version 1.0
+ * @version 1
  */
 public class Main extends Application {
     @Override

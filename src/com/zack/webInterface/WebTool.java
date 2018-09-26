@@ -15,12 +15,15 @@ import java.util.Queue;
  * and input data onto the WhenToWork website.
  *
  * @author Zack Dreitzler
- * @version .2
+ * @version 1
  */
 public class WebTool {
 
     /**
      * Acts as a web browser and adds the shifts to WhenToWork.
+     * @param shiftList is the list of shifts to be added to whentowork.
+     * @param details is the login details for the user.
+     * @throws FailedToolException
      */
     public void run(List<Shift> shiftList, List<String> details) throws FailedToolException{
         try(final WebClient client = new WebClient()) {
